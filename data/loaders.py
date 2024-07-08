@@ -2,7 +2,7 @@ import os
 import torch
 import numpy as np
 from torch_geometric.data import Data, Dataset, InMemoryDataset, download_url
-from utils.func import atom_number_to_one_hot#, from_dense_numpy_to_sparse
+from utils.func import atom_number_to_one_hot, from_dense_numpy_to_sparse
 
 
 class PyGDataset(InMemoryDataset):
