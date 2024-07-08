@@ -1,0 +1,38 @@
+
+extra_features:
+  eigen_feat: True
+  hops_feat: True
+  nnodes_feat: True
+  molecular_feat: False
+  eigen_feat_lower_level: False
+  n_node_in_cluster: False
+
+training:
+  epochs: 10
+  batch_size: 32
+  val_batch_size: 10000
+  learning_rate: 0.0002
+  lr_decay: 0.5
+  decay_iteration: 5000
+  beta1: 0.9
+  beta2: 0.999
+  resume_from_level: 0
+  resuming_model_dir: #'./wandb/run-20240528_113626-e81i8ix1/files/'  # './wandb/run-20240424_093504-5zwg3mhp/files/'
+
+model:
+  n_layers: 3
+  nhf: 32
+  layers: mpnn
+  mlp_hidden_size: 64
+  mlp_n_layers: 3
+  skip_connection: True
+  normalization: layer_norm
+  reductions: [4] # the number of cluster is then compute by nmax ceil_div reduc
+  pooling_func: gamma # gamma, mincut, diff, diffgamma ou None
+
+
+log:
+    n_loggin_steps: 1000
+    n_loggin_epochs: 3
+    wandb: disabled
+    debug: False
